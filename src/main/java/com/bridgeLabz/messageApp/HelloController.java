@@ -1,8 +1,7 @@
 package com.bridgeLabz.messageApp;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgeLabz.messageApp.Entity.Person;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController()
@@ -12,4 +11,10 @@ public class HelloController {
     public String hello() {
         return "Hello from BridgeLabz";
     }
+
+    @PostMapping("/hello/post")
+    public String helloPost(@RequestBody Person person) {
+        return "FirstName: " + person.getFirstName() + " LastName: " + person.getLastName();
+    }
+
 }
